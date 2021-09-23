@@ -340,7 +340,7 @@ class Store
 
     // save to access file with primary key value because we secured it above
     $storePath = $this->getDataPath() . "$data[$primaryKey].json";
-    IoHelper::writeContentToFile($storePath, json_encode($data));
+    IoHelper::writeContentToFile($storePath, json_encode($data, JSON_UNESCAPED_UNICODE));
 
     $this->createQueryBuilder()->getQuery()->getCache()->deleteAllWithNoLifetime();
 
